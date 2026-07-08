@@ -1413,6 +1413,17 @@
           }
 
           {
+            recent-windows = {
+              off = optional types.bool false // {
+                description = ''
+                  Disable the recent window switcher entirely.
+                  This prevents the default Alt+Tab/Mod+Tab bindings from being active.
+                '';
+              };
+            };
+          }
+
+          {
             input = {
               keyboard = {
                 xkb =
@@ -3632,6 +3643,10 @@
               (nullable leaf "color" cfg.overview.workspace-shadow.color)
             ])
           ])
+        ])
+
+        (plain' "recent-windows" [
+          (flag' "off" cfg.recent-windows.off)
         ])
 
         (plain "layout" [
